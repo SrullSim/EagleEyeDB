@@ -1,4 +1,3 @@
-import  mysql
 
 connect = ("server=localhost;"
            "user=root;"
