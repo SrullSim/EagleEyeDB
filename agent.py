@@ -18,6 +18,7 @@ class Agent:
         self.MissionsCompleted = 0
 
 
+
 def generate_code_name(name: str) -> str :
     """ create a code name from name"""
 
