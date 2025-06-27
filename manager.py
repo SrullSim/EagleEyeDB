@@ -6,4 +6,4 @@ a = Agent("ben", "NY")
 d = Dal()
 
 # d.add_agent_to_db(a)
-d.update_agent_missionsCompleted(1, "avi")
+d.delete_agent("avi")

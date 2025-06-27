@@ -3,12 +3,10 @@ import mysql.connector
 
 insert_query = ("INSERT INTO agents (name, codeName, location, status, missionsCompleted)"
                      "VALUES(%s, %s, %s, %s, %s)")
-
 select_all_query = "SELECT * FROM agents"
-
 select_by_name_query = "SELECT * FROM agents WHERE name=%s"
-
 update_agent_query = "UPDATE agents SET {column} = %s WHERE name = %s"
+delete_agent_query = "DELETE FROM agents WHERE name = %s"
 
 class Dal:
 
@@ -103,6 +101,26 @@ class Dal:
 
         except Exception as ex:
             print(f"error update {name} - ", ex)
+
+
+    def delete_agent(self, name):
+        """ delete row from agents """
+        try:
+            db = mysql.connector.connect(host="localhost",
+                                         user="root",
+                                         port="3306",
+                                         database="agents")
+
+            agent = db.cursor()
+            name = [name]
+
+            agent.execute(delete_agent_query, name)
+
+            db.commit()
+
+        except Exception as ex:
+            print("error to delete agent - ", ex)
+
 
 
 
