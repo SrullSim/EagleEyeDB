@@ -1,6 +1,9 @@
+from time import sleep
+
 import agent
 import DAL
 from agent import Agent
+import os
 
 class Manager:
 
@@ -20,6 +23,8 @@ class Manager:
                 self.agent = Agent(self.set_name(),self.set_location())
                 # add agent to DB
                 self.dal.add_agent_to_db(self.agent)
+                print("agent added successfully ! ")
+
 
             if choice == "2":
                 self.dal.get_all_agents()
@@ -28,14 +33,14 @@ class Manager:
                 self.dal.get_agent_by_name(self.set_name())
 
             if choice == "4":
-                name = input("enter name of agent")
+                name = input("enter name of agent - ")
                 column= input("what column you want to update - ")
-                val = input("enter value to insert")
+                val = input("enter value to insert - ")
                 self.dal.update_agent(column, val, name)
+                print("agent update successfully ")
+
 
             if choice == "5":
-
-                name = input("enter name of agent")
                 self.dal.delete_agent(self.set_name())
 
             if choice == "6":
@@ -43,15 +48,12 @@ class Manager:
 
 
 
-
-
-
     def set_name(self):
-        name = input("enter name")
+        name = input("enter name - ")
         return name
 
     def set_location(self):
-        loc = input("enter location")
+        loc = input("enter location - ")
         return loc
 
     def entry_print(self):
