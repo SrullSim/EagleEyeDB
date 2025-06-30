@@ -75,15 +75,14 @@ class Dal:
             print("error to get agent by name - ", ex)
 
 
-    def update_agent_missionsCompleted(self, value, name):
+    def update_agent(self,column, value, name):
         """update agent status and mission competed"""
 
-        column = input("what column you want to update - ")
+
         if column not in self.__columns:
             raise ValueError
         else:
             update_agent_with_column = update_agent_query.format(column=column)
-            print(update_agent_with_column)
 
         try:
             agents  = mysql.connector.connect(host="localhost",
