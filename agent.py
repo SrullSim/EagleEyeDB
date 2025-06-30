@@ -18,10 +18,11 @@ class Agent:
         self.MissionsCompleted = 0
 
 
+
+
     def get_tup_agent(self):
         tup = (self._RealName, self._CodeName, self._Location, str(self.Status), self.MissionsCompleted)
         return tup
-
 
 
 def generate_code_name(name: str) -> str :
